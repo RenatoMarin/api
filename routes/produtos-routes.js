@@ -1,11 +1,10 @@
-const express = require('express');
-var router = express.router()
-
+const express = require('express')
+var router = express.Router()
 
 //Construtores
-const Produtos = require("../models/produtos.js");
-const ProdutosService = require("../services/produtos-service");
-var produtosService = new ProdutosService();
+const Produtos = require("../models/produtos.js")
+const ProdutosService = require("../services/produtos-service")
+var produtosService = new ProdutosService()
 
 router.get("/produtos", (req, res)=> {
     res.json(ProdutosService.buscarTodos())

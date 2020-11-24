@@ -5,7 +5,7 @@ const path = require("path");
 
 //ROTAS
 const produtosRoutes = require("./routes/produtos-routes")
-const categoriasRoutes = require("./routes/categotias-routes")
+const categoriasRoutes = require("./routes/categorias-routes")
 
 //Express Json
 app.use(express.json());
