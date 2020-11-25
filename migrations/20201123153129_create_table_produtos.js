@@ -7,8 +7,8 @@ exports.up = function(knex) {
         table.money('valor').notNull()
         table.string('image').notNull()
         //table.datetime('datacadastro')
-        //   table.integer('catId').references('catId')
-        //         .inTable('cateogrias').notNull()
+        table.integer('catId').references('id')
+                 .inTable('cateogria').notNull()
     })
 };
 
