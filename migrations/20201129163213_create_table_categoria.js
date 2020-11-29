@@ -7,5 +7,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return kenex.schema.dropTable('categoria')
+    return knex.schema.dropTable('categoria')
 };
