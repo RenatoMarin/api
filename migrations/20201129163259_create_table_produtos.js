@@ -4,11 +4,11 @@ exports.up = function(knex) {
         table.increments('prodId').primary()
         table.integer('catId').references('catId')
             .inTable('categoria').notNull()
-        table.string('nome', 50).notNull()
-        table.string('descrição').notNull()
+        table.string('catName').notNull()
+        table.string('nome', 100).notNull()
+        table.string('descricao').notNull()
         table.float('valor').notNull()
         table.string('image').notNull()
-        //table.datetime('datacadastro')
     })
 };
 
