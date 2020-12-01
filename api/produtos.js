@@ -21,7 +21,7 @@ module.exports = app => {
     }
     const removeProdutos = (req, res) => {
         app.db('produtos')
-           .where({id: req.params.id }) 
+           .where({prodId: req.params.id}) 
            .del()
            .then(rowsDeleted => {
             if(rowsDeleted > 0) {
@@ -35,7 +35,7 @@ module.exports = app => {
     }
     const updateProdutos = (req, res, doneAt) => {
         app.db('produtos')
-           .where({ id: req.params.id, userId: req.user.id })
+           .where({ id: req.params.id, prodId: req.params.id })
            .update({ doneAt })
            .then(_ => res.status(204).send())
            .catch(err => res.status(400).json(err))
