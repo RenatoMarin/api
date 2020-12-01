@@ -29,7 +29,15 @@ module.exports = app => {
         
     app.route('/categoria/:id')
         .delete(app.api.categoria.removeCategoria)
-        .get(app.api.categoria.getCategoriaById)
+    
+    app.get('/categoria/:catId', async (req, res)=> {
+        const {catId} = req.params
+        const result = await knex
+            .select("*")
+            .where({catId})
+            .from("categoria")
+        return res.json(result)
+    })
 
     app.put('/categoria/:catId', async (req, res )=> {
         const {catId} = req.params
