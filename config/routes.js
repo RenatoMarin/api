@@ -7,5 +7,6 @@ module.exports = app => {
         
     app.route('/produtos/:id')
         .delete(app.api.produtos.removeProdutos)
-
+        .get(app.api.produtos.getProdutosById)
+         
  }

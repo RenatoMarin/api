@@ -6,10 +6,17 @@ module.exports = app => {
            .then(produtos => res.json(produtos))
            .catch(err => res.status(400).json(err))
     }
+    const getProdutosById = (req, res) => {       
+        app.db('produtos')
+           .where({prodId: req.params.id})
+           .orderBy('nome')
+           .then(produtos => res.json(produtos))
+           .catch(err => res.status(400).json(err))
+    }
     const saveProdutos = (req, res) => {
         app.db('produtos')
            .insert(req.body) 
-           .then(_ => res.status(204).send())
+           .then(_ => res.status(200).send())
            .catch(err => res.status(400).json(err))
     }
     const removeProdutos = (req, res) => {
@@ -33,6 +40,6 @@ module.exports = app => {
            .then(_ => res.status(204).send())
            .catch(err => res.status(400).json(err))
     }
-    return { getProdutos, saveProdutos, removeProdutos , updateProdutos}
+    return { getProdutos, getProdutosById, saveProdutos, removeProdutos , updateProdutos}
 
 }
