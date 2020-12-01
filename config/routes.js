@@ -21,4 +21,21 @@ module.exports = app => {
         .update(req.body)
         return res.json({message: "Update realizado", produto: req.body})
     })
+
+    // ROTAS CATEGORIAS
+    app.route('/categoria')
+        .get(app.api.categoria.getCategoria)
+        .post(app.api.categoria.saveCategoria)
+        
+    app.route('/categoria/:id')
+        .delete(app.api.categoria.removeCategoria)
+        .get(app.api.categoria.getCategoriaById)
+
+    app.put('/categoria/:catId', async (req, res )=> {
+        const {catId} = req.params
+        await knex('categoria')
+        .where({catId})
+        .update(req.body)
+        return res.json({message: "Update realizado", categoria: req.body})
+    })
  }
